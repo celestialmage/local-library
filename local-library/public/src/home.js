@@ -40,11 +40,16 @@ function getMostCommonGenres(books) {
     });
   }
 
-  genreRanking.sort((aResult, bResult) =>
-    aResult.count < bResult.count ? 1 : -1
-  );
+  const sortRanking = (genres) => {
+    
+    genres.sort((aResult, bResult) => (aResult.count < bResult.count ? 1 : -1));
 
-  const result = [...genreRanking.slice(0, 5)];
+    const result = [...genres.slice(0, 5)];
+
+    return result;
+  };
+
+  const result = sortRanking(genreRanking);
 
   return result;
 }
